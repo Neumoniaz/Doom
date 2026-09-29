@@ -6,6 +6,7 @@ public class InputController : MonoBehaviour
     public static InputController Instance;
 
     InputAction movementInput;
+    InputAction shootInput;
 
     [HideInInspector] public Vector2 movementVector;
 
@@ -27,10 +28,22 @@ public class InputController : MonoBehaviour
     void Update()
     {
         GetMoveInput();
+        Shoot();
     }
+
+    private void Shoot()
+    {
+        if (shootInput.WasPressedThisFrame())
+        {
+            GunController.instance.Fire();
+        }
+    }
+    
+
 
     public void GetMoveInput()
     {
         movementVector = movementInput.ReadValue<Vector2>();
+        shootInput = InputSystem.actions.FindAction("Attack");
     }
 }
