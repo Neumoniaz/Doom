@@ -16,6 +16,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("El jugador ha entrado en el área del enemigo.");
             //enemyAggro.animator.SetBool("isAttacking", true);
             isAttacking = true;
         }
@@ -25,6 +26,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("El jugador ha salido del área del enemigo.");
             //enemyAggro.animator.SetBool("isAttacking", false);
             isAttacking = false;
         }
